@@ -25,12 +25,6 @@ export function PlayerCard({ player, players }: PlayerCardProps) {
         <div className="min-w-0">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-lime-200">Player profile</p>
           <h3 className="mt-2 break-words text-3xl font-black tracking-tight text-white sm:text-4xl xl:text-3xl">{player.name}</h3>
-    <article className="relative overflow-hidden rounded-[2rem] border border-lime-300/20 bg-lime-300/[0.07] p-6 shadow-2xl shadow-lime-950/20">
-      <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-lime-300/10 blur-3xl" />
-      <div className="relative flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-lime-200">Player profile</p>
-          <h3 className="mt-2 text-4xl font-black tracking-tight text-white">{player.name}</h3>
           <div className="mt-4 flex flex-wrap gap-2">
             <span className="rounded-full bg-lime-300 px-3 py-1 text-sm font-black text-zinc-950">
               {typeof rank === 'number' ? `Rank #${rank}` : 'Unranked'}
@@ -49,20 +43,6 @@ export function PlayerCard({ player, players }: PlayerCardProps) {
           <div className="min-w-0 rounded-2xl border border-white/10 bg-zinc-950/45 p-3 sm:p-4 xl:p-3" key={label}>
             <p className="min-w-0 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-zinc-500 sm:text-xs xl:text-[0.68rem]">{label}</p>
             <p className="mt-2 min-w-0 text-xl font-black leading-tight text-white sm:text-2xl xl:text-xl">{value}</p>
-            <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-sm font-bold text-white">{status}</span>
-          </div>
-        </div>
-        <div className="rounded-2xl border border-white/10 bg-black/25 px-5 py-4 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">Record</p>
-          <p className="mt-1 font-mono text-4xl font-black text-white">{getRecord(player)}</p>
-        </div>
-      </div>
-
-      <div className="relative mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {stats.map(([label, value]) => (
-          <div className="rounded-2xl border border-white/10 bg-zinc-950/45 p-4" key={label}>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">{label}</p>
-            <p className="mt-2 text-2xl font-black text-white">{value}</p>
           </div>
         ))}
       </div>
