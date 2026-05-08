@@ -18,6 +18,7 @@ export function PlayerSearch({ players }: PlayerSearchProps) {
   const hasSearched = normalizedQuery.length > 0;
 
   return (
+    <section className="min-w-0 rounded-[2rem] border border-white/10 bg-zinc-950/75 p-5 shadow-2xl shadow-black/30 backdrop-blur sm:p-6">
     <section className="rounded-[2rem] border border-white/10 bg-zinc-950/75 p-5 shadow-2xl shadow-black/30 backdrop-blur sm:p-6">
       <div className="mb-5">
         <p className="text-xs font-bold uppercase tracking-[0.25em] text-lime-200">Find your line</p>
@@ -36,6 +37,7 @@ export function PlayerSearch({ players }: PlayerSearchProps) {
         />
       </label>
 
+      <div className="mt-5 min-w-0">
       <div className="mt-5">
         {matchedPlayer ? <PlayerCard player={matchedPlayer} players={players} /> : null}
         {hasSearched && !matchedPlayer ? (
