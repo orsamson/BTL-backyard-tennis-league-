@@ -1,0 +1,51 @@
+import { formatWinPercentage, getGamesPlayed, getPlayerRank, getPlayerStatus, getRecord, getWinPercentage, type Player } from '../lib/standings';
+
+type PlayerCardProps = {
+  player: Player;
+  players: Player[];
+};
+
+export function PlayerCard({ player, players }: PlayerCardProps) {
+  const rank = getPlayerRank(player, players);
+  const gamesPlayed = getGamesPlayed(player);
+  const winPercentage = getWinPercentage(player);
+  const status = getPlayerStatus(player);
+
+  const stats = [
+    ['Wins', player.wins],
+    ['Losses', player.losses],
+    ['Games', gamesPlayed],
+    ['Win %', formatWinPercentage(winPercentage)],
+  ];
+
+  return (
+    <article className="relative overflow-hidden rounded-[2rem] border border-lime-300/20 bg-lime-300/[0.07] p-6 shadow-2xl shadow-lime-950/20">
+      <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-lime-300/10 blur-3xl" />
+      <div className="relative flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-lime-200">Player profile</p>
+          <h3 className="mt-2 text-4xl font-black tracking-tight text-white">{player.name}</h3>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="rounded-full bg-lime-300 px-3 py-1 text-sm font-black text-zinc-950">
+              {typeof rank === 'number' ? `Rank #${rank}` : 'Unranked'}
+            </span>
+            <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-sm font-bold text-white">{status}</span>
+          </div>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-black/25 px-5 py-4 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">Record</p>
+          <p className="mt-1 font-mono text-4xl font-black text-white">{getRecord(player)}</p>
+        </div>
+      </div>
+
+      <div className="relative mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {stats.map(([label, value]) => (
+          <div className="rounded-2xl border border-white/10 bg-zinc-950/45 p-4" key={label}>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">{label}</p>
+            <p className="mt-2 text-2xl font-black text-white">{value}</p>
+          </div>
+        ))}
+      </div>
+    </article>
+  );
+}
