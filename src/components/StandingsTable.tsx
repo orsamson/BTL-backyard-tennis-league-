@@ -7,7 +7,6 @@ type StandingsTableProps = {
 export function StandingsTable({ players }: StandingsTableProps) {
   return (
     <section className="min-w-0 rounded-[2rem] border border-white/10 bg-zinc-950/75 p-4 shadow-2xl shadow-black/30 backdrop-blur sm:p-6">
-    <section className="rounded-[2rem] border border-white/10 bg-zinc-950/75 p-4 shadow-2xl shadow-black/30 backdrop-blur sm:p-6">
       <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-lime-200">League table</p>
