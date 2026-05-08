@@ -36,6 +36,7 @@ function App() {
         </section>
 
         <div className="grid min-w-0 gap-6 xl:grid-cols-[1.25fr_minmax(0,0.75fr)] xl:items-start">
+        <div className="grid gap-6 xl:grid-cols-[1.25fr_0.75fr] xl:items-start">
           <StandingsTable players={rankedPlayers} />
           <PlayerSearch players={players} />
         </div>
